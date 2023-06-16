@@ -1,7 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DosenController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\RestoController;
+use App\Http\Controllers\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +46,32 @@ Route::get('/pegawai/edit/{id}','PegawaiController@edit');
 Route::post('/pegawai/update','PegawaiController@update');
 Route::get('/pegawai/hapus/{id}','PegawaiController@hapus');
 Route::delete('/data/{id}', 'DataController@destroy')->name('data.destroy');
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'register'])->name('register');
+Route::get('/home', 'PegawaiController@home');
+Route::get('/kintan','RestoController@kintan');
+Route::get('/gyu','RestoController@gyu');
+Route::get('/hana','RestoController@hana');
+Route::get('/mcd','RestoController@mcd');
+Route::get('/udon','RestoController@udon');
+Route::get('/google-autocomplete', [GoogleController::class, 'index']);
+
+
+
+
+// Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+// Route::post('/register', [AuthController::class, 'register']);
+// Route::get('login', 'PegawaiController@showLoginForm')->name('login');
+// Route::post('login', 'PegawaiController@login');
+// Route::post('logout', 'PegawaiController@logout')->name('logout');
+// Route::get('register', 'PegawaiController@showRegistrationForm')->name('register');
+// Route::post('register', 'PegawaiController@register');
+// Route::post('/examples/actions/confirmation', 'PegawaiController@confirmationAction');
+// Route::post('/pegawai/storeUser','PegawaiController@storeUser');
+
+
 
 
 

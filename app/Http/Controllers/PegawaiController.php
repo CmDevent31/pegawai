@@ -27,15 +27,6 @@ class PegawaiController extends Controller
                 ->rawColumns(['aksi'])
                 ->make(true);
         }
-		// DB::table('pegawai2')->get([
-		// 	'pegawai_nama' => $request->nama,
-		// 	'pegawai_jabatan' => $request->jabatan,
-		// 	'tanggal_lahir' => $request->tanggal_lahir,
-		// 	'pegawai_alamat' => $request->alamat,
-		// 	// 'pegawai_umur' => intval($umur),
-		// ]);
-          
-    	// mengirim data pegawai ke view index
 		
     	return view('index',['pegawai' => $pegawai]);
 
@@ -146,5 +137,9 @@ public function cari(Request $request)
     		// mengirim data pegawai ke view index
 		  return view('index', compact('pegawai'));
 	}
- 
+
+	public function home()
+	{
+		return view('home');
+	}
 }
