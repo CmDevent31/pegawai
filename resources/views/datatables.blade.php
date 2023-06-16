@@ -1,7 +1,3 @@
-@extends('layouts.main')
-
-@section('tables')
-	
 
 <div class="container mt-1">
     <div class="row">
@@ -15,28 +11,27 @@
                               </div>
                             </div>
                             <div class="pull-right"><center>
-								<a class="btn btn-success btn-lg" href="/pegawai">Daftar Pegawai Terdaftar</a></center>
+                                <a class="btn btn-success btn-lg">Daftar Pegawai Terdaftar</a></center>
                               <div class="float-end">
                                   <div class="card mt-0">
                                       <div class="input-group">
                                           
                                       </div>
                                   </div>
-                                  <a class="btn btn-primary" href="/home"> Home</a>
-                                </div>
-                                <a class="btn btn-primary" href="/pegawai/tambah">Tambah Pegawai Baru</a>
+                              </div>
+                            <a class="btn btn-primary" href="/pegawai/tambah">Tambah Pegawai Baru</a>
                             <div class="container mt-2">
                         </div>
                         @if (session('success'))
-                            <div class="alert alert-success">{{ session('success') }}</div>
+                        <div class="alert alert-success">{{ session('success') }}</div>
                         @endif
                         @if (session('error'))
                             <div class="alert alert-danger">{{ session('error') }}</div>
                         @endif
                         <div class="table-responsive-lg">
-							<table id="table" class="table table-striped table-bordered" style="width:100%">
+                            <table id="table" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
-                                <tr>
+                                    <tr>
                                     <th>Nama</th>
                                     <th>Jabatan</th>
                                     <th>Umur</th>
@@ -81,5 +76,4 @@
         </div>
     </div>
 </div>
-         
-@endsection
+

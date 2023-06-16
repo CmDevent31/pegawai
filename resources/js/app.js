@@ -15,6 +15,7 @@ $(document).ready(function () {
         processing: true,
         serverSide: false,
         paging: false,
+        info: false,
         ajax: {
             "url": "{{ route('/pegawai') }}",
             data: function (d) {
