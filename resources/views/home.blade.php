@@ -36,6 +36,12 @@
       .album-col {
         margin-left: 0px; /* Jarak antar samping */
         }
+        .btn-group-sm>.btn, .btn-sm {
+    padding: 0.25rem 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 2.2rem;
+  }
       }
 
   .bg-image {
@@ -83,6 +89,13 @@
     width: 100%;
     object-fit: cover;
   }
+  .btn-group-sm>.btn, .btn-sm {
+    padding: 0.25rem 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 2.2rem;
+}
+
 </style>
     
 </head>
@@ -176,10 +189,7 @@
 <div class="container mt-5">
 <div>
      
-        <!-- Tombol untuk membuka modal -->
-        <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#locationModal">
-          Location
-      </button>
+      
               <!-- Modal -->
               <div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="locationModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
@@ -209,7 +219,11 @@
             </form>
         </div>
     
-  <h3>Our Merchants</h3>
+  <h3>Our Merchants  
+    <!-- Tombol untuk membuka modal -->
+    <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#locationModal">
+      Location
+  </button></h3>
   <main>
                                 
                                     
@@ -460,7 +474,7 @@
                                 <footer class="text-muted py-5">
                                   <div class="container">
                                     <p class="float-end mb-1">
-                                      <a href="#" class="btn btn-outline-warning">Back to top</a>
+                                      <a href="#" class="btn btn-sm btn-outline-warning">Back to top</a>
                                     </p>
                                  
                                   </div>
