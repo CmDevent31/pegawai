@@ -2,113 +2,302 @@
 
 @section('resto')
 
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    line-height: 1.5;
+}
+.card-wrapper{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+img{
+    width: 100%;
+    display: block;
+}
+.img-display{
+    overflow: hidden;
+}
+.img-showcase{
+    display: flex;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+.img-showcase img{
+    min-width: 100%;
+}
+.img-select{
+    display: flex;
+}
+.img-item{
+    margin: 0.3rem;
+}
+.img-item:nth-child(1),
+.img-item:nth-child(2),
+.img-item:nth-child(3){
+    margin-right: 0;
+}
+.img-item:hover{
+    opacity: 0.8;
+}
+.product-content{
+    padding: 2rem 1rem;
+}
+.product-title{
+    font-size: 3rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    position: relative;
+    color: #12263a;
+    margin: 1rem 0;
+}
+.product-title::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 80px;
+    background: #12263a;
+}
+.product-link{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    background: #256eff;
+    color: #fff;
+    padding: 0 0.3rem;
+    transition: all 0.5s ease;
+}
+.product-link:hover{
+    opacity: 0.9;
+}
+.product-rating{
+    color: #ffc107;
+}
+.product-rating span{
+    font-weight: 600;
+    color: #252525;
+}
+.product-price{
+    margin: 1rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.product-price span{
+    font-weight: 400;
+}
+.last-price span{
+    color: #f64749;
+    text-decoration: line-through;
+}
+.new-price span{
+    color: #256eff;
+}
+.product-detail h2{
+    text-transform: capitalize;
+    color: #12263a;
+    padding-bottom: 0.6rem;
+}
+.product-detail p{
+    font-size: 0.9rem;
+    padding: 0.3rem;
+    opacity: 0.8;
+}
+.product-detail ul{
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+.product-detail ul li{
+    margin: 0;
+    list-style: none;
+    background: url(shoes_images/checked.png) left center no-repeat;
+    background-size: 18px;
+    padding-left: 1.7rem;
+    margin: 0.4rem 0;
+    font-weight: 600;
+    opacity: 0.9;
+}
+.product-detail ul li span{
+    font-weight: 400;
+}
+.purchase-info{
+    margin: 1.5rem 0;
+}
+.purchase-info input,
+.purchase-info .btn{
+    border: 1.5px solid #ddd;
+    border-radius: 25px;
+    text-align: center;
+    padding: 0.45rem 0.8rem;
+    outline: 0;
+    margin-right: 0.2rem;
+    margin-bottom: 1rem;
+}
+.purchase-info input{
+    width: 60px;
+}
+.purchase-info .btn{
+    cursor: pointer;
+    color: #fff;
+}
+.purchase-info .btn:first-of-type{
+    background: #256eff;
+}
+.purchase-info .btn:last-of-type{
+    background: #f64749;
+}
+.purchase-info .btn:hover{
+    opacity: 0.9;
+}
+.social-links{
+    display: flex;
+    align-items: center;
+}
+.social-links a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: #000;
+    border: 1px solid #000;
+    margin: 0 0.2rem;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: all 0.5s ease;
+}
+.social-links a:hover{
+    background: #000;
+    border-color: transparent;
+    color: #fff;
+}
+
+@media screen and (min-width: 992px){
+    .card{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem;
+    }
+    .card-wrapper{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .product-imgs{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .product-content{
+        padding-top: 0;
+    }
+    .btn-group-sm>.btn, .btn-sm{
+      padding: 0.25rem 12.5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: 1.2rem;
+    }
+  }
+</style>
 <div class="row">
-  <div class="col-lg-6">
+  
+<div class="card border-warning">
 
-
-    <div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel" data-mdb-zoom-effect="true" data-mdb-auto-height="true">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="https://www.restaurant-hospitality.com/sites/restaurant-hospitality.com/files/Marugame%20Udon%20Glendale%20Calif.jpg" alt="Gallery image 3" class="w-100" />
-        </div>
-        <div class="carousel-item">
-          <img src="https://farm5.staticflickr.com/4443/26211698889_fcc1235ef1_b.jpg" alt="Gallery image 1" class="ecommerce-gallery-main-img active w-100" data-mdb-toggle="lightbox" />
-        </div>
-        <div class="carousel-item">
-          <img src="https://seeninthecity.co.uk/wp-content/uploads/2021/07/Marugame-Udon-1-of-1.jpg" alt="Gallery image 2" class="w-100" />
-        </div>
-        <div class="carousel-item">
-          <img src="https://4.bp.blogspot.com/-_fgu0ijZwIU/XHM9ZYLmf0I/AAAAAAAACn8/x9yDsq7-lbkoC8-IG80guzQiNabkmXfYwCLcBGAs/s640/marugame%2Budon.jpg" alt="Gallery image 4" class="w-100" />
+    <!-- card left -->
+    <div class="product-imgs">
+      <div class="img-display">
+        <div class="img-showcase">
+          <img src="https://berita.99.co/wp-content/uploads/2023/02/menu-marugame-udon.jpg" alt="Gallery image 1" class="ecommerce-gallery-main-img active w-100" data-mdb-toggle="lightbox" />
+          <img src="https://thumbor.prod.vidiocdn.com/5PtDPgbiDMa9oi8QXq3Zyz1qeKc=/filters:quality(70)/vidio-web-prod-video/uploads/video/image/2318584/marugame-7d2fe8.jpg" alt="Gallery image 2" class="w-100" />
+          <img src="https://www.selasar.com/wp-content/uploads/2022/11/marugame-udon.jpg" alt="Gallery image 3" class="w-100" />
+          <img src="https://blog.evermos.com/wp-content/uploads/2023/05/Featured-Artikel-Template-640-x-480-px-99.jpg" alt="Gallery image 4" class="w-100" />
         </div>
       </div>
-    
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-    
-    <div class="ecommerce-gallery" data-mdb-zoom-effect="true" data-mdb-auto-height="true">
-      <div class="row py-3 shadow-5">
-        <div class="col-3 mt-1">
-          <img src="https://www.restaurant-hospitality.com/sites/restaurant-hospitality.com/files/Marugame%20Udon%20Glendale%20Calif.jpg" data-mdb-img="https://www.restaurant-hospitality.com/sites/restaurant-hospitality.com/files/Marugame%20Udon%20Glendale%20Calif.jpg" alt="Gallery image 2" class="w-100" />
+      <div class="img-select">
+        <div class="img-item">
+          <a href="#" data-id="1">
+            <img src="https://berita.99.co/wp-content/uploads/2023/02/menu-marugame-udon.jpg" alt="Gallery image 1" class="w-100" />
+          </a>
         </div>
-        <div class="col-3 mt-1">
-          <img src="https://farm5.staticflickr.com/4443/26211698889_fcc1235ef1_b.jpg" data-mdb-img="https://farm5.staticflickr.com/4443/26211698889_fcc1235ef1_b.jpg" alt="Gallery image 1" class="w-100" />
+        <div class="img-item">
+          <a href="#" data-id="2">
+            <img src="https://thumbor.prod.vidiocdn.com/5PtDPgbiDMa9oi8QXq3Zyz1qeKc=/filters:quality(70)/vidio-web-prod-video/uploads/video/image/2318584/marugame-7d2fe8.jpg" alt="Gallery image 2" class="w-100" />
+          </a>
         </div>
-        <div class="col-3 mt-1">
-          <img src="https://seeninthecity.co.uk/wp-content/uploads/2021/07/Marugame-Udon-1-of-1.jpg" alt="Gallery image 3" class="w-100" />
+        <div class="img-item">
+          <a href="#" data-id="3">
+            <img src="https://www.selasar.com/wp-content/uploads/2022/11/marugame-udon.jpg" 
+            alt="Gallery image 3" class="w-100" />
+          </a>
         </div>
-        <div class="col-3 mt-1">
-          <img src="https://4.bp.blogspot.com/-_fgu0ijZwIU/XHM9ZYLmf0I/AAAAAAAACn8/x9yDsq7-lbkoC8-IG80guzQiNabkmXfYwCLcBGAs/s640/marugame%2Budon.jpg" 
-          data-mdb-img="https://4.bp.blogspot.com/-_fgu0ijZwIU/XHM9ZYLmf0I/AAAAAAAACn8/x9yDsq7-lbkoC8-IG80guzQiNabkmXfYwCLcBGAs/s640/marugame%2Budon.jpg" alt="Gallery image 4" class="w-100" />
+        <div class="img-item">
+          <a href="#" data-id="4">
+            <img src="https://blog.evermos.com/wp-content/uploads/2023/05/Featured-Artikel-Template-640-x-480-px-99.jpg" alt="Gallery image 4" class="w-100" />
+          </a>
         </div>
       </div>
     </div>
-    
-
-
-{{-- 
-    <aside class="col-lg-6">
-      <div class="border rounded-4 mb-3 d-flex justify-content-center">
-        <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big.webp">
-          <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big.webp" />
-        </a>
-      </div>
-      <div class="d-flex justify-content-center mb-3">
-        <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big1.webp" class="item-thumb">
-          <img width="60" height="60" class="rounded-2" src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big1.webp" />
-        </a>
-        <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big2.webp" class="item-thumb">
-          <img width="60" height="60" class="rounded-2" src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big2.webp" />
-        </a>
-        <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big3.webp" class="item-thumb">
-          <img width="60" height="60" class="rounded-2" src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big3.webp" />
-        </a>
-        <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big4.webp" class="item-thumb">
-          <img width="60" height="60" class="rounded-2" src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big4.webp" />
-        </a>
-        <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big.webp" class="item-thumb">
-          <img width="60" height="60" class="rounded-2" src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big.webp" />
-        </a>
-      </div>
-      <!-- thumbs-wrap.// -->
-      <!-- gallery-wrap .end// -->
-    </aside> --}}
-
-
-    
-<a class="btn btn-outline-secondary" href="/home"> Kembali</a>
-  </div>
-  <div class="col-lg-6">
-
-      <div class="card-body">
-        <h2 class="card-title">Marugame Udon</h2>
-        <p class="font-italic">08.00am - 21.00pm | OPEN</p>
-        <h4 class="card-title">Location</h4>
-        <p class="font-italic">Marugame Udon
-            Jl. Buah Batu No.157</p>
-        <h4 class="card-title">Brief Description</h4>
+    <!-- card right -->
+    <div class="product-content">
+      <h2 class="product-title">Marugame Udon</h2>
+     
+      
+      
+      <div class="product-detail">
+        <h2>About This Item:</h2>
         <p class="font-italic">Marugame Udon adalah Udon & Tempura terbaik dari Jepang. Semua resep yang digunakan merupakan resep asli dari Marugame Jepang.</p>
-        <h4 class="card-title">Detail Description</h4>
-        <p class="font-italic">Open Link : https://marugameudon.co.id/</p>
-        <dl>
-        <h4 class="card-title">Menu Items</h4>
-            <dd class="font-italic">Niku Udon  -  IDR.54.000++</dd>
-            <dd class="font-italic">Beef Curry Udon  -  IDR.54.000++</dd>
-            <dd class="font-italic">Chicken Katsu Curry Udon  -  IDR.51.000++</dd>
-            <dd class="font-italic">Kitsune Udon  -  IDR.41.000++</dd>
-            <dd class="font-italic">Abura Udon  -  IDR.45.000++</dd>
-        </dl> 
-        <h4 class="card-title">Detail Regarding Delivery</h4>
-        <p class="font-italic">Min. Order of $50</p>
+        <ul>
+          <li>Location: <span>Marugame Udon
+            Jl. Buah Batu No.157</span></li>
+          <li>Detail Regarding Delivery: <span>Min. Order of $50</span></li>
+          <li>Menu Items:</li>
+          <ul>
+            <li>Niku Udon  -  IDR.54.000++</li>
+            <li>Beef Curry Udon  -  IDR.54.000++</li>
+            <li>Chicken Katsu Curry Udon  -  IDR.51.000++</li>
+            <li>Kitsune Udon  -  IDR.41.000++</li>
+            <li>Abura Udon  -  IDR.45.000++</li>
+          </ul>
+          <p class="font-italic">Open Link: <a href="https://marugameudon.co.id/">https://marugameudon.co.id/</a></p>
+          <a href="/home" class="btn btn-sm btn-outline-warning">Kembali</a>
+        </ul>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  const imgs = document.querySelectorAll('.img-select a');
+const imgBtns = [...imgs];
+let imgId = 1;
+
+imgBtns.forEach((imgItem) => {
+    imgItem.addEventListener('click', (event) => {
+        event.preventDefault();
+        imgId = imgItem.dataset.id;
+        slideImage();
+    });
+});
+
+function slideImage(){
+    const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+
+    document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+}
+
+window.addEventListener('resize', slideImage);
+</script>
 @endsection

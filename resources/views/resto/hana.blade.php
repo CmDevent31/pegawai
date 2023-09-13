@@ -2,124 +2,300 @@
 
 @section('resto')
 
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    line-height: 1.5;
+}
+.card-wrapper{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+img{
+    width: 100%;
+    display: block;
+}
+.img-display{
+    overflow: hidden;
+}
+.img-showcase{
+    display: flex;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+.img-showcase img{
+    min-width: 100%;
+}
+.img-select{
+    display: flex;
+}
+.img-item{
+    margin: 0.3rem;
+}
+.img-item:nth-child(1),
+.img-item:nth-child(2),
+.img-item:nth-child(3){
+    margin-right: 0;
+}
+.img-item:hover{
+    opacity: 0.8;
+}
+.product-content{
+    padding: 2rem 1rem;
+}
+.product-title{
+    font-size: 3rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    position: relative;
+    color: #12263a;
+    margin: 1rem 0;
+}
+.product-title::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 80px;
+    background: #12263a;
+}
+.product-link{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    background: #256eff;
+    color: #fff;
+    padding: 0 0.3rem;
+    transition: all 0.5s ease;
+}
+.product-link:hover{
+    opacity: 0.9;
+}
+.product-rating{
+    color: #ffc107;
+}
+.product-rating span{
+    font-weight: 600;
+    color: #252525;
+}
+.product-price{
+    margin: 1rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.product-price span{
+    font-weight: 400;
+}
+.last-price span{
+    color: #f64749;
+    text-decoration: line-through;
+}
+.new-price span{
+    color: #256eff;
+}
+.product-detail h2{
+    text-transform: capitalize;
+    color: #12263a;
+    padding-bottom: 0.6rem;
+}
+.product-detail p{
+    font-size: 0.9rem;
+    padding: 0.3rem;
+    opacity: 0.8;
+}
+.product-detail ul{
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+.product-detail ul li{
+    margin: 0;
+    list-style: none;
+    background: url(shoes_images/checked.png) left center no-repeat;
+    background-size: 18px;
+    padding-left: 1.7rem;
+    margin: 0.4rem 0;
+    font-weight: 600;
+    opacity: 0.9;
+}
+.product-detail ul li span{
+    font-weight: 400;
+}
+.purchase-info{
+    margin: 1.5rem 0;
+}
+.purchase-info input,
+.purchase-info .btn{
+    border: 1.5px solid #ddd;
+    border-radius: 25px;
+    text-align: center;
+    padding: 0.45rem 0.8rem;
+    outline: 0;
+    margin-right: 0.2rem;
+    margin-bottom: 1rem;
+}
+.purchase-info input{
+    width: 60px;
+}
+.purchase-info .btn{
+    cursor: pointer;
+    color: #fff;
+}
+.purchase-info .btn:first-of-type{
+    background: #256eff;
+}
+.purchase-info .btn:last-of-type{
+    background: #f64749;
+}
+.purchase-info .btn:hover{
+    opacity: 0.9;
+}
+.social-links{
+    display: flex;
+    align-items: center;
+}
+.social-links a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: #000;
+    border: 1px solid #000;
+    margin: 0 0.2rem;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: all 0.5s ease;
+}
+.social-links a:hover{
+    background: #000;
+    border-color: transparent;
+    color: #fff;
+}
+
+@media screen and (min-width: 992px){
+    .card{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem;
+    }
+    .card-wrapper{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .product-imgs{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .product-content{
+        padding-top: 0;
+    }
+    .btn-group-sm>.btn, .btn-sm{
+      padding: 0.25rem 12.5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: 1.2rem;
+    }
+  }
+</style>
 <div class="row">
-  <div class="col-lg-6">
-   
-    <div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel" data-mdb-zoom-effect="true" data-mdb-auto-height="true">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
+  
+<div class="card border-warning">
+
+    <!-- card left -->
+    <div class="product-imgs">
+      <div class="img-display">
+        <div class="img-showcase">
           <img src="https://www.hanamasaresto.com/photos/shares/HanamasaLocation/LB-1.JPG" alt="Gallery image 1" class="ecommerce-gallery-main-img active w-100" data-mdb-toggle="lightbox" />
-        </div>
-        <div class="carousel-item">
-          <img src="https://upload.crazfood.com/photos/1/1704170420543" alt="Gallery image 3" class="w-100" />
-        </div>
-        <div class="carousel-item">
-          <img src="https://assets-pergikuliner.com/Amh5qLMUKNbQ01-fG-6eFHqofN4=/fit-in/1366x768/smart/filters:no_upscale()/https://assets-pergikuliner.com/uploads/image/picture/893310/picture-1524118937.jpg" alt="Gallery image 2" class="w-100" />
-        </div>
-        <div class="carousel-item">
+          <img src="https://i2.wp.com/4.bp.blogspot.com/-ksAK-xf6DFI/WdKDK5PaoCI/AAAAAAAAvgg/H_ACXH86ioYO2ajlpteR30MIjbm3W888QCLcBGAs/s1600/08.jpg?ssl=1" alt="Gallery image 2" class="w-100" />
+          <img src="https://1.bp.blogspot.com/-94c5SxR4GyU/XUO25QLAx8I/AAAAAAAAcUY/cPMRozAJ30QwaLOk3LSgEvi2H1SOrXubACLcBGAs/s1600/hanamasa-menu.JPG" alt="Gallery image 3" class="w-100" />
           <img src="https://4.bp.blogspot.com/-G3M4JylBWPs/WeCPcWSG6AI/AAAAAAAALI8/qlI-hooDvoU0LVZZ-LALdu1MA6x6vuJKACLcBGAs/s1600/Lindaleenk-Hanamasa-Review-5.jpegg" alt="Gallery image 4" class="w-100" />
         </div>
       </div>
-    
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-    
-    <div class="ecommerce-gallery" data-mdb-zoom-effect="true" data-mdb-auto-height="true">
-      <div class="row py-3 shadow-5">
-        <div class="col-3 mt-1">
-          <img src="https://www.hanamasaresto.com/photos/shares/HanamasaLocation/LB-1.JPG" data-mdb-img="https://www.hanamasaresto.com/photos/shares/HanamasaLocation/LB-1.JPG" alt="Gallery image 1" class="w-100" />
+      <div class="img-select">
+        <div class="img-item">
+          <a href="#" data-id="1">
+            <img src="https://www.hanamasaresto.com/photos/shares/HanamasaLocation/LB-1.JPG" alt="Gallery image 1" class="w-100" />
+          </a>
         </div>
-        <div class="col-3 mt-1">
-          <img src="https://upload.crazfood.com/photos/1/1704170420543" data-mdb-img="https://upload.crazfood.com/photos/1/1704170420543" alt="Gallery image 2" class="w-100" />
+        <div class="img-item">
+          <a href="#" data-id="2">
+            <img src="https://i2.wp.com/4.bp.blogspot.com/-ksAK-xf6DFI/WdKDK5PaoCI/AAAAAAAAvgg/H_ACXH86ioYO2ajlpteR30MIjbm3W888QCLcBGAs/s1600/08.jpg?ssl=1" alt="Gallery image 2" class="w-100" />
+          </a>
         </div>
-        <div class="col-3 mt-1">
-          <img src="https://assets-pergikuliner.com/Amh5qLMUKNbQ01-fG-6eFHqofN4=/fit-in/1366x768/smart/filters:no_upscale()/https://assets-pergikuliner.com/uploads/image/picture/893310/picture-1524118937.jpg" alt="Gallery image 3" class="w-100" />
+        <div class="img-item">
+          <a href="#" data-id="3">
+            <img src="https://1.bp.blogspot.com/-94c5SxR4GyU/XUO25QLAx8I/AAAAAAAAcUY/cPMRozAJ30QwaLOk3LSgEvi2H1SOrXubACLcBGAs/s1600/hanamasa-menu.JPG" 
+            alt="Gallery image 3" class="w-100" />
+          </a>
         </div>
-        <div class="col-3 mt-1">
-          <img src="https://4.bp.blogspot.com/-G3M4JylBWPs/WeCPcWSG6AI/AAAAAAAALI8/qlI-hooDvoU0LVZZ-LALdu1MA6x6vuJKACLcBGAs/s1600/Lindaleenk-Hanamasa-Review-5.jpegg" 
-          data-mdb-img="https://4.bp.blogspot.com/-G3M4JylBWPs/WeCPcWSG6AI/AAAAAAAALI8/qlI-hooDvoU0LVZZ-LALdu1MA6x6vuJKACLcBGAs/s1600/Lindaleenk-Hanamasa-Review-5.jpegg" alt="Gallery image 4" class="w-100" />
+        <div class="img-item">
+          <a href="#" data-id="4">
+            <img src="https://4.bp.blogspot.com/-G3M4JylBWPs/WeCPcWSG6AI/AAAAAAAALI8/qlI-hooDvoU0LVZZ-LALdu1MA6x6vuJKACLcBGAs/s1600/Lindaleenk-Hanamasa-Review-5.jpegg" alt="Gallery image 4" class="w-100" />
+          </a>
         </div>
       </div>
     </div>
-   
-   
-   
-   
-   
-    {{-- <div class="ecommerce-gallery" data-mdb-zoom-effect="true" data-mdb-auto-height="true">
-      <div class="row py-3 shadow-5">
-        <div class="col-12 mb-1">
-          <div class="lightbox">
-            <img
-              src="https://www.hanamasaresto.com/photos/shares/HanamasaLocation/LB-1.JPG"
-              alt="Gallery image 1"
-              class="ecommerce-gallery-main-img active w-100"
-            />
-          </div>
-        </div>
-        <div class="col-3 mt-1">
-          <img
-            src="https://www.hanamasaresto.com/photos/shares/HanamasaLocation/LB-1.JPG"
-            data-mdb-img="https://www.hanamasaresto.com/photos/shares/HanamasaLocation/LB-1.JPG"
-            alt="Gallery image 1"
-            class="w-100"
-          />
-        </div>
-        <div class="col-3 mt-1">
-          <img
-            src="https://upload.crazfood.com/photos/1/1704170420543"
-            data-mdb-img="https://upload.crazfood.com/photos/1/1704170420543"
-            alt="Gallery image 2"
-            class="w-100"
-          />
-        </div>
-        <div class="col-3 mt-1">
-          <img
-            src="https://assets-pergikuliner.com/Amh5qLMUKNbQ01-fG-6eFHqofN4=/fit-in/1366x768/smart/filters:no_upscale()/https://assets-pergikuliner.com/uploads/image/picture/893310/picture-1524118937.jpg"
-            data-mdb-img="https://assets-pergikuliner.com/Amh5qLMUKNbQ01-fG-6eFHqofN4=/fit-in/1366x768/smart/filters:no_upscale()/https://assets-pergikuliner.com/uploads/image/picture/893310/picture-1524118937.jpg"
-            alt="Gallery image 3"
-            class="w-100"
-          />
-        </div>
-        <div class="col-3 mt-1">
-          <img
-            src="https://4.bp.blogspot.com/-G3M4JylBWPs/WeCPcWSG6AI/AAAAAAAALI8/qlI-hooDvoU0LVZZ-LALdu1MA6x6vuJKACLcBGAs/s1600/Lindaleenk-Hanamasa-Review-5.jpeg"
-            data-mdb-img="https://4.bp.blogspot.com/-G3M4JylBWPs/WeCPcWSG6AI/AAAAAAAALI8/qlI-hooDvoU0LVZZ-LALdu1MA6x6vuJKACLcBGAs/s1600/Lindaleenk-Hanamasa-Review-5.jpeg"
-            alt="Gallery image 4"
-            class="w-100"
-          />
-        </div>
-    </div>
-</div> --}}
-<a class="btn btn-outline-secondary" href="/home"> Kembali</a>
-  </div>
-  <div class="col-lg-6">
-
-      <div class="card-body">
-        <h2 class="card-title">Hanamasa</h2>
-        <p class="font-italic">09.00am - 21.00pm | OPEN</p>
-        <h4 class="card-title">Location</h4>
-        <p class="font-italic">Hanamasa Dago
-            Jl. Ir. H. Juanda No.48, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115</p>
-        <h4 class="card-title">Brief Description</h4>
-        <p class="font-italic">HANAMASA Restoran, merupakan restoran Jepang pertama di Indonesia bertaraf International dengan konsep Self - Service, serta perpaduan tradisionil khas Jepang dan Indonesia</p>
-        <h4 class="card-title">Detail Description</h4>
-        <p class="font-italic">Open Link : https://www.hanamasaresto.com/</p>
-        <dl>
-        <h4 class="card-title">Menu Items</h4>
-            <dd class="font-italic">Harga Makan Sepuasnya  -  Rp. 214.500,-</dd>
-            <dd class="font-italic">Harga Makan dan Minum Sepuasnya  -  Rp. 223.500,-</dd>
-        </dl>
+    <!-- card right -->
+    <div class="product-content">
+      <h2 class="product-title">Hanamasa</h2>
+     
+      
+      
+      <div class="product-detail">
+        <h2>About This Item:</h2>
+        <p class="font-italic">HANAMASA Restoran, merupakan restoran Jepang pertama di Indonesia bertaraf International dengan konsep Self - Service,
+           serta perpaduan tradisionil khas Jepang dan Indonesia</p>
+        <ul>
+          <li>Location: <span>Hanamasa Dago
+            Jl. Ir. H. Juanda No.48, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115</span></li>
+          <li>Detail Regarding Delivery: <span>Min. Order of $50</span></li>
+          <li>Menu Items:</li>
+          <ul>
+            <li>Harga Makan Sepuasnya  -  Rp. 214.500++</li>
+            <li>Harga Makan dan Minum Sepuasnya  -  Rp. 223.500++</li>
+          </ul>
+          <p class="font-italic">Open Link: <a href="https://www.hanamasaresto.com">https://www.hanamasaresto.com</a></p>
+          <a href="/home" class="btn btn-sm btn-outline-warning">Kembali</a>
+        </ul>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  const imgs = document.querySelectorAll('.img-select a');
+const imgBtns = [...imgs];
+let imgId = 1;
+
+imgBtns.forEach((imgItem) => {
+    imgItem.addEventListener('click', (event) => {
+        event.preventDefault();
+        imgId = imgItem.dataset.id;
+        slideImage();
+    });
+});
+
+function slideImage(){
+    const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+
+    document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+}
+
+window.addEventListener('resize', slideImage);
+</script>
 @endsection

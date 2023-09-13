@@ -205,6 +205,12 @@ img{
     .product-content{
         padding-top: 0;
     }
+    .btn-group-sm>.btn, .btn-sm{
+      padding: 0.25rem 12.5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: 1.2rem;
+    }
 }
 </style>
 <div class="row">
@@ -242,13 +248,12 @@ img{
     <!-- card right -->
     <div class="product-content">
       <h2 class="product-title">Kintan Buffet</h2>
-      <a href="/home" class="product-link">Kembali</a>
+     
       
-
+      
       <div class="product-detail">
         <h2>About This Item:</h2>
         <p class="font-italic">Double THE FLAVOR strawberyy 4pcs + 1 Eggs. Good food tastes even better when shared!</p>
-        <p class="font-italic">Open Link: <a href="http://kintan-buffet.com/">http://kintan-buffet.com/</a></p>
         <ul>
           <li>Location: <span>Mall Senayan City - Lt 4 Unit 4-82, JL. Asia Afrika Lot 19, Kel. Gelora, Kec. Tanah Abang, Jakarta Pusat</span></li>
           <li>Detail Regarding Delivery: <span>Min. Order of $50</span></li>
@@ -260,6 +265,8 @@ img{
             <li>Medium Egg Breakfast with Bread | $9.30</li>
             <li>Small Egg Breakfast with Bread | $6.90</li>
           </ul>
+          <p class="font-italic">Open Link: <a href="http://kintan-buffet.com/">http://kintan-buffet.com/</a></p>
+          <a href="/home" class="btn btn-sm btn-outline-warning">Kembali</a>
         </ul>
       </div>
     </div>
